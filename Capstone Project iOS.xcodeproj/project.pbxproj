@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		744FA2F52626913800FA5B00 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744FA2F42626913800FA5B00 /* Login.storyboard */; };
 		C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */; };
 		C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */; };
 		C76CD9102608F7A800D4DEEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90F2608F7A800D4DEEB /* HomeViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		744FA2F42626913800FA5B00 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C76CD9082608F7A800D4DEEB /* Capstone Project iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Project iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				C76CD9112608F7A800D4DEEB /* Main.storyboard */,
 				C76CD9162608F7A900D4DEEB /* LaunchScreen.storyboard */,
+				744FA2F42626913800FA5B00 /* Login.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -139,10 +142,10 @@
 		C7B4053F2611026E005C4EA0 /* Core Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				C7B40536261101BE005C4EA0 /* DataViewController.swift */,
 				C76CD90F2608F7A800D4DEEB /* HomeViewController.swift */,
 				C7B40539261101ED005C4EA0 /* NotificationsViewController.swift */,
 				C7B4053C26110200005C4EA0 /* SettingsViewController.swift */,
-				C7B40536261101BE005C4EA0 /* DataViewController.swift */,
 			);
 			path = "Core Tabs";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744FA2F52626913800FA5B00 /* Login.storyboard in Resources */,
 				C76CD9182608F7A900D4DEEB /* LaunchScreen.storyboard in Resources */,
 				C76CD9152608F7A900D4DEEB /* Assets.xcassets in Resources */,
 				C76CD9132608F7A800D4DEEB /* Main.storyboard in Resources */,
@@ -395,7 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HMahal.Capstone-Project-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -413,7 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HMahal.Capstone-Project-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
