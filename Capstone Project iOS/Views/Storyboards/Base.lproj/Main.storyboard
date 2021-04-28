@@ -515,14 +515,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addNewCell" id="pMt-iG-3QZ" customClass="addNewCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="366" height="43"/>
+                                        <rect key="frame" x="0.0" y="28" width="366" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pMt-iG-3QZ" id="X5L-8G-lrK">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImN-Nl-Ogj">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="linkColor"/>
                                                     <nil key="highlightedColor"/>
@@ -541,7 +541,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordCell" id="aad-PW-Mmt" customClass="recordCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71" width="366" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="71.5" width="366" height="37.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aad-PW-Mmt" id="yWh-kN-EV5">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="37.5"/>
@@ -611,7 +611,7 @@
                                         <connections>
                                             <outlet property="vaccinatedDateLabel" destination="CWH-RR-ghS" id="49Q-rW-oci"/>
                                             <outlet property="virusNameLabel" destination="Bxr-AJ-10V" id="mNx-lW-4Wt"/>
-                                            <segue destination="xbc-Vi-WT6" kind="show" id="wJF-5F-P0G"/>
+                                            <segue destination="xbc-Vi-WT6" kind="show" identifier="VaccineRecordDetail" id="wJF-5F-P0G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -641,7 +641,7 @@
         <!--Covid-19-->
         <scene sceneID="wD7-wT-C3H">
             <objects>
-                <viewController id="xbc-Vi-WT6" sceneMemberID="viewController">
+                <viewController id="xbc-Vi-WT6" customClass="VaccineRecordDetailViewController" customModule="Capstone_Project_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QMA-0K-BEA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -778,6 +778,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Covid-19" id="zvu-Yu-cCT"/>
+                    <connections>
+                        <outlet property="document" destination="h8q-qC-ODh" id="R4I-gb-0rz"/>
+                        <outlet property="expireDate" destination="lMb-fB-fYk" id="In7-s1-0gt"/>
+                        <outlet property="manufacturer" destination="Q0E-kA-jrI" id="5jx-wZ-Ih5"/>
+                        <outlet property="office" destination="n2k-a5-h8t" id="0W7-m1-H8A"/>
+                        <outlet property="provider" destination="FrZ-8h-UnX" id="vXD-cb-Cgo"/>
+                        <outlet property="vaccinatedDate" destination="fGA-jF-YM5" id="hmg-GS-ptf"/>
+                        <outlet property="vaccine" destination="mXx-T6-ufc" id="Mbo-u8-hvs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbk-3F-SWp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1830,14 +1839,14 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="appointmentAvailableTimeCell" id="QWg-J2-ysL" customClass="AppointmentAvailableTimeCell" customModule="Capstone_Project_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="366" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="366" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QWg-J2-ysL" id="Ybl-WF-04T">
-                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-NT-bFJ">
-                                                    <rect key="frame" x="20" y="11" width="326" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="326" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
