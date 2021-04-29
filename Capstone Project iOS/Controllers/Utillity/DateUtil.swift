@@ -1,8 +1,8 @@
 //
-//  DateTimeUtil.swift
+//  DateUtil.swift
 //  Capstone Project iOS
 //
-//  Created by Joeun Kim on 4/28/21.
+//  Created by Joeun Kim on 4/29/21.
 //
 
 import Foundation
