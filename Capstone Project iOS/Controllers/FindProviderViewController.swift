@@ -9,11 +9,16 @@ import UIKit
 
 class FindProviderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    private var database: Database = Database()
+    var providers: [Provider] = []
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cellDetailContainer: UIView!
     
     var detailContainerViewConstraint = NSLayoutConstraint() // height=0
     var detailContainerViewHeight: CGFloat!
+    
+    var touchedCellindex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +26,19 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-//        tableView.estimatedRowHeight =
+        providers = createArray()
         
+    }
+    func createArray() -> [Provider] {
+        var tempProviders: [Provider] = []
+        
+        let provider1 = Provider(providerID: 0001, providerName: "Dr. Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
+        let provider2 = Provider(providerID: 0002, providerName: "Dr. Kim", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(777)-777-7777", contactEmail: "jkim@email.com", website: "www.website2.com")
+        
+        tempProviders.append(provider1)
+        tempProviders.append(provider2)
+        
+        return tempProviders
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +48,11 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
 //        constHeightEqualToZero = cellDetailContainer.heightAnchor.constraint(equalToConstant: 0)
 //        detailContainerViewConstraint = constHeightEqualToZero
 //        constHeightEqualToZero.isActive = true // collapse
+    }
+    
+    // Make an appointment
+    @IBAction func makeAppointmentBtnTouched(_ sender: UIButton) {
+        touchedCellindex = sender.tag
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -60,19 +81,29 @@ class FindProviderViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return providers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "providerInfoCell", for: indexPath) as! providerInfoCell
         
-        cell.providerName.text = "Dr. Atrey"
-        cell.distance.text = "3.2 miles"
-        cell.address.text = "1400 Washington Ave, NY 12222"
-        cell.contact.text = "(1)646-777-7777"
-        cell.website.text = "www.albany.edu"
+        let provider = providers[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "providerInfoCell", for: indexPath) as! providerInfoCell
+        cell.setProvider(provider: provider)
+        cell.makeAppointmentBtn.tag = indexPath.row
         
         return cell
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Preparing transition to Vaccine Detail Page
+        if segue.identifier == "makeAppointmentSegue" {
+            if let vc = segue.destination as? MakeAppointmentViewController {
+                if let index = touchedCellindex {
+                    vc.provider = providers[index]
+                }
+            }
+        }
     }
     
 

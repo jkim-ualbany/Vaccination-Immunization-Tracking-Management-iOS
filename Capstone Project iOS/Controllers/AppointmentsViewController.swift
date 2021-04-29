@@ -9,6 +9,11 @@ import UIKit
 
 class AppointmentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    private var database: Database = Database()
+    var appointments: [Appointment] = []
+    
+    var touchedCellBtnTag: Int?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,6 +22,23 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
+        appointments = createArray()
+        
+    }
+    
+    func createArray() -> [Appointment] {
+        var tempAppointmemnts: [Appointment] = []
+        
+        let appointment = Appointment(appointmentID: 0001, virusType: "Covid-19", date: "2021-05-01", providerName: "Dr. Atrey", organizationName: "UAlbany", address: "1400 Washington Ave, NY 12222", contactPhone: "1(646)-777-7777", contactEmail: "email@email.com", website: "www.website.com")
+        
+        tempAppointmemnts.append(appointment)
+        
+        return tempAppointmemnts
+    }
+    
+    // Cancel appointment
+    @IBAction func cancelBtnTouched(_ sender: UIButton) {
+        touchedCellBtnTag = sender.tag
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -25,22 +47,16 @@ class AppointmentsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return appointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell") as! appointmentCell
+        let appointment = appointments[indexPath.row]
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! appointmentCell
-        cell.virusName.text = "Covid-19"
-        cell.dateHeader.text = "Tomorrow"
-        cell.date.text = "2021-04-20"
-        cell.time.text = "10:00AM"
-        cell.address.text = "1400 Washington Ave, NY 12222"
-        cell.office.text = "UAlbany"
-        cell.provider.text = "Dr. Atrey"
-        cell.contact.text = "646-777-7777"
-        cell.website.text = "www.albany.edu"
+        cell.setAppointment(appointment: appointment)
+        cell.cancelBtn.tag = indexPath.row
+        
         return cell
     }
     

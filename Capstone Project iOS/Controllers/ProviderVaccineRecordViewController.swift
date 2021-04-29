@@ -10,14 +10,25 @@ import UIKit
 class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var records: [Record] = []
     //    var records: [patientName: String, vacciatedDate: String, dob: String] = []
 //
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        records = createArray()
+    
+    }
+    
+    func createArray() -> [Record] {
+        var tempRecords: [Record] = []
         
-
+        let record1 = Record(recordID: 0001, patientID: 0001, providerID: 0001, patientName: "Smith, James", patientDob: "1994-05-19", virusName: "Covid-19", vaccinatedDate: "2021-04-19")
+        
+        tempRecords.append(record1)
+        
+        return tempRecords
     }
     
     
@@ -31,14 +42,24 @@ class ProviderVaccineRecordViewController: UIViewController, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let record = records[indexPath.row]
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "providerRecordCell") as! providerRecordCell
-        cell.patientName.text = "Smith, James"
-        cell.vaccinatedDateLabel.text = "2021-04-20"
-        cell.dobLabel.text = "1994-05-19"
+        cell.setRecord(record: record)
         
         return cell
     }
     
-    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Preparing transition to Vaccine Detail Page
+        if segue.identifier == "ProviderVaccineRecordDetail" {
+            if let vc = segue.destination as? ProviderVaccineRecordUploadViewController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    vc.record = records[indexPath.row]
+                }
+            }
+        }
+    }
 
 }

@@ -9,14 +9,30 @@ import UIKit
 
 class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    private var database: Database = Database()
+    var provider : Provider?
+    
     @IBOutlet weak var timeTableView: UITableView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    private var database: Database = Database()
+    @IBOutlet weak var providerNameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var contactPhoneLabel: UILabel!
+    @IBOutlet weak var contactEmailLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
+
     var availableTimes: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let provider = provider {
+            providerNameLabel.text = provider.providerName
+            addressLabel.text = provider.address
+            contactPhoneLabel.text = provider.contactPhone
+            contactEmailLabel.text = provider.contactEmail
+            websiteLabel.text = provider.website
+        }
 
         // Fetch slots for today by default
         fetchAvailableTimeSlotsFor(date: Date())
@@ -26,6 +42,7 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
         
         datePicker.datePickerMode = .date
         datePicker.date = Date()
+        
     }
     
     // Fetch available time slots from DB
@@ -50,16 +67,7 @@ class MakeAppointmentViewController: UIViewController, UITableViewDelegate, UITa
 //        times.append("16:00")
 //        return times
 //    }
-//
-//    func loadAvailableTimes(times: [String]) -> [String] {
-//        var passedtimes = [String]()
-//        passedtimes = times
-////        times.append("10:00")
-////        times.append("11:00")
-////        times.append("13:00")
-////        times.append("16:00")
-//        return passedtimes
-//    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

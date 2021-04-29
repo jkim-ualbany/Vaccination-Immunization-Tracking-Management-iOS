@@ -23,7 +23,7 @@ class Database {
     }
     
     // Fetch Vaccination Record with Details
-    func fetchVaccinationRecordDetails(for recordID: String) -> Record? {
+    func fetchVaccinationRecordDetails(for recordID: Int) -> Record? {
         return nil
     }
 }

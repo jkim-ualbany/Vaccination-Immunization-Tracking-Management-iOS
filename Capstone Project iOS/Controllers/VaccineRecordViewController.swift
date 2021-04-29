@@ -14,14 +14,11 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
     let database: Database = Database()
     var records: [Record] = []
     
-    var recordss: [String:String] = [:]
+//    var recordss: [String:String] = [:]
+//
+//    var recordType: [String] = []
+//    var recordTime: [String] = []
 
-    var recordType: [String] = []
-    var recordTime: [String] = []
-//    let records = [
-//        ["Add New Record"],
-//        ["1", "2"]
-//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +37,9 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
     func createArray() -> [Record] {
         var tempRecords: [Record] = []
         
-//        let record1 = Record(virusName: "Covid-19", vaccinatedDate: "2021-04-20", manufacturer: "Pfizer", provider: "Dr. Atrey", office: "UAlbany", expireDate: "2022-04-20")
-//        let record2 = Record(virusName: "Flu", vaccinatedDate: "2020-08-21", manufacturer: "Unknown", provider: "Dr. Atrey", office: "UAlbany", expireDate: "N/A")
-//        let record3 = Record(virusName: "Chickenpox", vaccinatedDate: "2015-02-15", manufacturer: "Unknown", provider: "Dr. Atrey", office: "UAlbany", expireDate: "N/A")
-        
-        let record1 = Record(recordID: "0001", virusNmae: "Covid-19", vaccinatedDate: "2021-04-20")
-        let record2 = Record(recordID: "0002", virusNmae: "Flu", vaccinatedDate: "2020-08-21")
-        let record3 = Record(recordID: "0003", virusNmae: "Chickenpox", vaccinatedDate: "2015-02-15")
+        let record1 = Record(recordID: 0001, patientID: 0001, patientName: "Smith, James", virusNmae: "Covid-19", vaccinatedDate: "2021-04-20")
+        let record2 = Record(recordID: 0002, patientID: 0001, patientName: "Smith, James", virusNmae: "Flu", vaccinatedDate: "2020-08-21")
+        let record3 = Record(recordID: 0003, patientID: 0001, patientName: "Smith, James", virusNmae: "Chickenpox", vaccinatedDate: "2015-02-15")
         
         tempRecords.append(record1)
         tempRecords.append(record2)
@@ -91,14 +84,11 @@ class VaccineRecordViewController: UIViewController, UITableViewDelegate, UITabl
             
             return cell
         }
-        
-        return UITableViewCell()
     }
 
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Preparing transition to Vaccine Detail Pge
+        // Preparing transition to Vaccine Detail Page
         if segue.identifier == "VaccineRecordDetail" {
             if let vc = segue.destination as? VaccineRecordDetailViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
