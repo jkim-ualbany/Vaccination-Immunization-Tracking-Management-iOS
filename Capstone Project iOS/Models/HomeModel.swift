@@ -26,10 +26,8 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         switch type {
         case "login":
             theUrl += "&login=\(data?["login"] ?? "")&password=\(data?["password"] ?? "")"
-            break;
         case "u_profile":
             theUrl += "&uid=\(data?["uid"] ?? 0)"
-            break;
         default:
             print("invalid type");
         }
@@ -61,26 +59,21 @@ class HomeModel: NSObject, URLSessionDataDelegate {
             print(error)
         }
         
-        var jsonElement = NSDictionary()
+        print(jsonResult)
         var obj:NSObject? = nil
 
-        for i in 0 ..< jsonResult.count {
-            jsonElement = jsonResult[i] as! NSDictionary
-            if let code = jsonElement["code"] as? Int {
-                if code < 0 {
-                    print("api failed")
-                } else {
-                    if let datas = jsonElement["data"] as? NSMutableArray {
-                        switch type {
-                        case "login":
-                            obj = LoginModel.parseJSON(datas);
-                            break;
-                        case "u_profile":
-                            obj = PatientModel.parseJSON(datas);
-                            break;
-                        default:
-                            print("invalid type");
-                        }
+        if let code = jsonResult["code"] as? Int {
+            if code < 0 {
+                print("api failed")
+            } else {
+                if let datas = jsonResult["data"] as? NSArray {
+                    switch type {
+                    case "login":
+                        obj = LoginModel.parseJSON(datas);
+                    case "u_profile":
+                        obj = PatientModel.parseJSON(datas);
+                    default:
+                        print("invalid type");
                     }
                 }
             }

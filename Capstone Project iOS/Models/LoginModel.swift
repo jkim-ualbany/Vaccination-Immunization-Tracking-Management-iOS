@@ -38,16 +38,15 @@ class LoginModel: NSObject {
 
     }
     static func parseJSON(_ datas:NSArray) -> NSObject? {
+        print(datas[0])
         if let data = datas[0] as? NSDictionary {
-                    
-                    //the following insures none of the JsonElement values are nil through optional binding
-                    if let type = data["type"] as? String,
-                        let uid = data["uid"] as? Int
-                     {
-                        let obj = LoginModel(uid:uid, type:type)
-                        return obj
-                    }
-       }
+            if let type = data["type"] as? String,
+                let uid = data["targetid"] as? Int
+            {
+                let obj = LoginModel(uid:uid, type:type)
+                return obj
+            }
+        }
         return nil
     }
 }
