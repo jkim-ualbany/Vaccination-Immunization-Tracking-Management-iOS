@@ -24,6 +24,9 @@
 		7486C0DE263A92C0002E9A92 /* VaccineRecordAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0DD263A92C0002E9A92 /* VaccineRecordAddNewViewController.swift */; };
 		7486C0E2263A9858002E9A92 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0E1263A9858002E9A92 /* Appointment.swift */; };
 		7486C0E6263AA912002E9A92 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0E5263AA912002E9A92 /* Provider.swift */; };
+		803765A9263B0F27001DBAA8 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803765A8263B0F27001DBAA8 /* HomeModel.swift */; };
+		803765AC263B0F30001DBAA8 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803765AB263B0F30001DBAA8 /* LoginModel.swift */; };
+		803765AF263B0F37001DBAA8 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803765AE263B0F37001DBAA8 /* PatientModel.swift */; };
 		C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */; };
 		C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */; };
 		C76CD9102608F7A800D4DEEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90F2608F7A800D4DEEB /* HomeViewController.swift */; };
@@ -61,6 +64,9 @@
 		7486C0DD263A92C0002E9A92 /* VaccineRecordAddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VaccineRecordAddNewViewController.swift; path = "Capstone Project iOS/Controllers/Core Tabs/VaccineRecordAddNewViewController.swift"; sourceTree = SOURCE_ROOT; };
 		7486C0E1263A9858002E9A92 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Appointment.swift; path = "Capstone Project iOS/Models/Appointment.swift"; sourceTree = SOURCE_ROOT; };
 		7486C0E5263AA912002E9A92 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		803765A8263B0F27001DBAA8 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		803765AB263B0F30001DBAA8 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		803765AE263B0F37001DBAA8 /* PatientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
 		C76CD9082608F7A800D4DEEB /* Capstone Project iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Project iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +139,9 @@
 		C7B4052F2611012E005C4EA0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				803765AE263B0F37001DBAA8 /* PatientModel.swift */,
+				803765AB263B0F30001DBAA8 /* LoginModel.swift */,
+				803765A8263B0F27001DBAA8 /* HomeModel.swift */,
 				7486C0A5263911E6002E9A92 /* Record.swift */,
 				7486C0E1263A9858002E9A92 /* Appointment.swift */,
 				C7B4055826110578005C4EA0 /* Patient.swift */,
@@ -307,8 +316,11 @@
 				7486C0A22636E781002E9A92 /* recordCell.swift in Sources */,
 				7486C0A926391F42002E9A92 /* providerRecordCell.swift in Sources */,
 				C7B4054A261103C0005C4EA0 /* VaccineRecordViewController.swift in Sources */,
+				803765AC263B0F30001DBAA8 /* LoginModel.swift in Sources */,
 				C7B4055326110412005C4EA0 /* FindProviderViewController.swift in Sources */,
 				7486C0E2263A9858002E9A92 /* Appointment.swift in Sources */,
+				803765A9263B0F27001DBAA8 /* HomeModel.swift in Sources */,
+				803765AF263B0F37001DBAA8 /* PatientModel.swift in Sources */,
 				7486C0CA263967A6002E9A92 /* VaccineRecordDetailViewController.swift in Sources */,
 				C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */,
 				C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */,
