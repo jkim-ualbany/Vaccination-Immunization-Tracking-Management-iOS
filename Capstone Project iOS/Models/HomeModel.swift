@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol HomeModelProtocol: class {
-    func itemsDownloaded(type: String, obj: NSObject?)
+protocol HomeModelProtocol: NSObjectProtocol {
+    func dataDownloaded(type: String, obj: NSObject?)
 }
 
 
@@ -21,18 +21,27 @@ class HomeModel: NSObject, URLSessionDataDelegate {
     let urlPath = "http://hftsoft.hopto.org:8341/api.php"
 
     func downloadItems(_ type:String, _ data:NSDictionary?) {
-        var theUrl = urlPath + "&type=\(type)"
+        var theUrl = urlPath + "?type=\(type)"
         // add parameters from data for each type to the url. will be given in excel
-        
-        
-        var url: URL = URL(string: theUrl)!
+        switch type {
+        case "login":
+            theUrl += "&login=\(data?["login"] ?? "")&password=\(data?["password"] ?? "")"
+            break;
+        case "u_profile":
+            theUrl += "&uid=\(data?["uid"] ?? 0)"
+            break;
+        default:
+            print("invalid type");
+        }
+
+        let url: URL = URL(string: theUrl)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         let task = defaultSession.dataTask(with: url) { (data, response, error) in
             
             if error != nil {
                 print("Failed to download data")
-            }else {
+            } else {
                 print("Data downloaded")
                 self.parseJSON(type, data!)
             }
@@ -44,23 +53,19 @@ class HomeModel: NSObject, URLSessionDataDelegate {
     
     func parseJSON(_ type:String, _ data:Data) {
            
-           var jsonResult = NSDictionary()
+        var jsonResult = NSDictionary()
            
-           do{
-               jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
-            
-           } catch let error as NSError {
-               print(error)
-               
-           }
-           
-           var jsonElement = NSDictionary()
-            var obj:NSObject? = nil
+        do {
+            jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        var jsonElement = NSDictionary()
+        var obj:NSObject? = nil
 
-           for i in 0 ..< jsonResult.count
-           {
-               
-               jsonElement = jsonResult[i] as! NSDictionary
+        for i in 0 ..< jsonResult.count {
+            jsonElement = jsonResult[i] as! NSDictionary
             if let code = jsonElement["code"] as? Int {
                 if code < 0 {
                     print("api failed")
@@ -70,25 +75,20 @@ class HomeModel: NSObject, URLSessionDataDelegate {
                         case "login":
                             obj = LoginModel.parseJSON(datas);
                             break;
-                        case "patient":
+                        case "u_profile":
                             obj = PatientModel.parseJSON(datas);
                             break;
                         default:
                             print("invalid type");
-                            
                         }
-                      }
+                    }
                 }
             }
-               
-
-           }
+        }
            
-           DispatchQueue.main.async(execute: { () -> Void in
-               
-            self.delegate.itemsDownloaded(type: type, obj: obj)
-               
-           })
-       }
+        DispatchQueue.main.async(execute: { () -> Void in
+            self.delegate.dataDownloaded(type: type, obj: obj)
+        })
+    }
 
 }
