@@ -7,32 +7,28 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeModelProtocol {
-    func dataDownloaded(type: String, obj: NSObject?) {
-        if (obj == nil) {
-            // there must be an error about db connection or php script
-            notificationlabel.text = "oops, something went wrong"
-        } else {
-            // display uid
-            let o = obj as? LoginModel
-            notificationlabel.text = "welcome user \(o!.uid ?? -1)"
-            // Please, consider the workflow for following db querys:
-            // fetch user profile to display username
-            // fetch user vaccines
-            // fetch user appointments
-        }
-    }
-    
+class HomeViewController: UIViewController {
     // here is a demo for fetching login information and displaying uid on the notification label
     @IBOutlet weak var notificationlabel: UILabel!
-    let hm = HomeModel()
+    //let conn = DatabaseConnection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        hm.delegate = self
+        //conn.delegate = self
         // Do any additional setup after loading the view.
-        hm.downloadItems("login", ["login":"alice","password":"alice"])
+        
+        // here is testing code
+
+        //conn.downloadItems("login", ["login":"alice","password":"alice"])
+        let obj = Database.getInstance().fetchLogin("alice", "alice")
+        if (obj == nil) {
+            notificationlabel.text = "login failed"
+        } else {
+            let o = obj
+            notificationlabel.text = "welcome user \(o!.uid ?? -1)"
+        }
+        
     }
 
 
