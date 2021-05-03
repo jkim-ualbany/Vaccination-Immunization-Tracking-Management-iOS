@@ -24,6 +24,9 @@
 		7486C0E2263A9858002E9A92 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0E1263A9858002E9A92 /* Appointment.swift */; };
 		7486C0E6263AA912002E9A92 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0E5263AA912002E9A92 /* Provider.swift */; };
 		7486C0F2263B1FA6002E9A92 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7486C0F1263B1FA6002E9A92 /* DateUtil.swift */; };
+		803765A9263B0F27001DBAA8 /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803765A8263B0F27001DBAA8 /* DatabaseConnection.swift */; };
+		803765AC263B0F30001DBAA8 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803765AB263B0F30001DBAA8 /* LoginModel.swift */; };
+		803765AF263B0F37001DBAA8 /* PatientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803765AE263B0F37001DBAA8 /* PatientModel.swift */; };
 		C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */; };
 		C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */; };
 		C76CD9102608F7A800D4DEEB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76CD90F2608F7A800D4DEEB /* HomeViewController.swift */; };
@@ -61,6 +64,9 @@
 		7486C0E1263A9858002E9A92 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Appointment.swift; path = "Capstone Project iOS/Models/Appointment.swift"; sourceTree = SOURCE_ROOT; };
 		7486C0E5263AA912002E9A92 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		7486C0F1263B1FA6002E9A92 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		803765A8263B0F27001DBAA8 /* DatabaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
+		803765AB263B0F30001DBAA8 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		803765AE263B0F37001DBAA8 /* PatientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientModel.swift; sourceTree = "<group>"; };
 		C76CD9082608F7A800D4DEEB /* Capstone Project iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Capstone Project iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C76CD90B2608F7A800D4DEEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C76CD90D2608F7A800D4DEEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				7486C0C226395AB4002E9A92 /* Database.swift */,
+				803765A8263B0F27001DBAA8 /* DatabaseConnection.swift */,
 				7486C0F1263B1FA6002E9A92 /* DateUtil.swift */,
 			);
 			path = Utillity;
@@ -133,6 +140,8 @@
 		C7B4052F2611012E005C4EA0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				803765AE263B0F37001DBAA8 /* PatientModel.swift */,
+				803765AB263B0F30001DBAA8 /* LoginModel.swift */,
 				7486C0A5263911E6002E9A92 /* Record.swift */,
 				7486C0E1263A9858002E9A92 /* Appointment.swift */,
 				C7B4055826110578005C4EA0 /* Patient.swift */,
@@ -162,24 +171,24 @@
 		C7B405322611014E005C4EA0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7486C0C126395A82002E9A92 /* Utillity */,
-				C7B40541261102FE005C4EA0 /* Sign Up */,
-				C7B4053F2611026E005C4EA0 /* Core Tabs */,
 				7486C09E2636E6F4002E9A92 /* addNewCell.swift */,
-				7486C0A12636E781002E9A92 /* recordCell.swift */,
-				C7B40549261103C0005C4EA0 /* VaccineRecordViewController.swift */,
-				7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */,
-				7486C0DD263A92C0002E9A92 /* VaccineRecordAddNewViewController.swift */,
-				7486C0AC263920B2002E9A92 /* ProviderVaccineRecordViewController.swift */,
-				7486C0A826391F42002E9A92 /* providerRecordCell.swift */,
-				7486C0B72639294E002E9A92 /* providerInfoCell.swift */,
-				C7B4054C261103D2005C4EA0 /* AppointmentsViewController.swift */,
-				7486C0B0263924D6002E9A92 /* appointmentCell.swift */,
-				C7B4054F261103FE005C4EA0 /* TestResultsViewController.swift */,
-				C7B4055226110412005C4EA0 /* FindProviderViewController.swift */,
-				C7B405552611041F005C4EA0 /* FAQViewController.swift */,
-				7486C0BA26393FC7002E9A92 /* MakeAppointmentViewController.swift */,
 				7486C0BD26394097002E9A92 /* AppointmentAvailableTimeCell.swift */,
+				7486C0B0263924D6002E9A92 /* appointmentCell.swift */,
+				C7B4054C261103D2005C4EA0 /* AppointmentsViewController.swift */,
+				C7B405552611041F005C4EA0 /* FAQViewController.swift */,
+				C7B4055226110412005C4EA0 /* FindProviderViewController.swift */,
+				7486C0BA26393FC7002E9A92 /* MakeAppointmentViewController.swift */,
+				7486C0B72639294E002E9A92 /* providerInfoCell.swift */,
+				7486C0A826391F42002E9A92 /* providerRecordCell.swift */,
+				7486C0AC263920B2002E9A92 /* ProviderVaccineRecordViewController.swift */,
+				7486C0A12636E781002E9A92 /* recordCell.swift */,
+				C7B4054F261103FE005C4EA0 /* TestResultsViewController.swift */,
+				7486C0DD263A92C0002E9A92 /* VaccineRecordAddNewViewController.swift */,
+				7486C0C9263967A6002E9A92 /* VaccineRecordDetailViewController.swift */,
+				C7B40549261103C0005C4EA0 /* VaccineRecordViewController.swift */,
+				C7B4053F2611026E005C4EA0 /* Core Tabs */,
+				C7B40541261102FE005C4EA0 /* Sign Up */,
+				7486C0C126395A82002E9A92 /* Utillity */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,8 +209,8 @@
 				C7B40536261101BE005C4EA0 /* DataViewController.swift */,
 				C76CD90F2608F7A800D4DEEB /* HomeViewController.swift */,
 				C7B40539261101ED005C4EA0 /* NotificationsViewController.swift */,
-				C7B4053C26110200005C4EA0 /* SettingsViewController.swift */,
 				7486C0D9263A3EC6002E9A92 /* ProviderVaccineRecordUploadViewController.swift */,
+				C7B4053C26110200005C4EA0 /* SettingsViewController.swift */,
 			);
 			path = "Core Tabs";
 			sourceTree = "<group>";
@@ -306,9 +315,12 @@
 				7486C0A22636E781002E9A92 /* recordCell.swift in Sources */,
 				7486C0A926391F42002E9A92 /* providerRecordCell.swift in Sources */,
 				C7B4054A261103C0005C4EA0 /* VaccineRecordViewController.swift in Sources */,
+				803765AC263B0F30001DBAA8 /* LoginModel.swift in Sources */,
 				C7B4055326110412005C4EA0 /* FindProviderViewController.swift in Sources */,
 				7486C0F2263B1FA6002E9A92 /* DateUtil.swift in Sources */,
 				7486C0E2263A9858002E9A92 /* Appointment.swift in Sources */,
+				803765A9263B0F27001DBAA8 /* DatabaseConnection.swift in Sources */,
+				803765AF263B0F37001DBAA8 /* PatientModel.swift in Sources */,
 				7486C0CA263967A6002E9A92 /* VaccineRecordDetailViewController.swift in Sources */,
 				C76CD90C2608F7A800D4DEEB /* AppDelegate.swift in Sources */,
 				C76CD90E2608F7A800D4DEEB /* SceneDelegate.swift in Sources */,
